@@ -12,25 +12,23 @@ const Example = () => {
     <>
       <h3>Products</h3>
       {loading ? <h4>loading...</h4> : 
-        <article className="users">
+        <article className="products">
           {products.map((product) => {
             const {name, company, image, price} = product.fields
             return(
-              <section key={product.id} className="item">
+              <section key={product.id} className="product">
                 {image.map((img) => {
                   const {id, thumbnails, filename, url} = img
                   return (
                     <a key={id} href={url} target="_blank" rel="noopener noreferrer">
-                      <img src={thumbnails.small.url} alt={filename} />
+                      <img src={thumbnails.full.url} alt={filename} />
                     </a>
                   )
                 })}
                 <div>                  
-                  <h4>
-                    {name}
-                    <p>${price}</p>
-                  </h4>
-                  <p>{company}</p>
+                  <h4>{name}</h4>
+                  <p>${price}</p>
+                  <h6>{company}</h6>
                 </div>
               </section>  
             )}
